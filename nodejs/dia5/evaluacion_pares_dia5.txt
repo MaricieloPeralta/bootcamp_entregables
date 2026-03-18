@@ -16,7 +16,7 @@ EVALUADO: Maricielo
 ESCENARIO ELEGIDO: Tenemos bcrypt.hash() para registrar y bcrypt.compare() para el login. 
 ¿Por qué no usamos bcrypt.decrypt() para recuperar la contraseña original y compararla directamente? ¿Existe ese método?
 
-RESUMEN DE LA RESPUESTA:
+RESUMEN DE LA RESPUESTA: Porque no es necesario, el motivo de que hasheamos las contraseñas es para que nadie pueda tener acceso a ellas, y relament eno necesitamos recuperar la original para compararla porque bcrypt.compare hasea la contraseña a comparar y la compara con las d ela base de datos así que no vendría a ser necesario, y no existe el método decrypt porque el mismo hash está hecho para que sea irreversible
 
 QUÉ ENTENDIÓ BIEN: 
 
