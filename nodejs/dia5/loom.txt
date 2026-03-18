@@ -1,1 +1,4 @@
-
+video zoom: 
+https://drive.google.com/file/d/1iLXMhkhkxLx3IsR0sVCyk6U6q-s-Gs9-/view?usp=sharing 
+Nos olvidamos de hacer la pregunta sin previo aviso: '¿Si cambiamos expiresIn a 1s, qué pasa con el token al segundo siguiente?
+La respuesta es: El Token expira inmediatmane. Al segundo siguiente cualquier petición que use ese token recibirá 401 Token inválido o expirado porque jwt.verify detecta que el tiempo de expiración ya pasó.
