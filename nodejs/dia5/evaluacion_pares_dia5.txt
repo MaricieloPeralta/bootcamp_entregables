@@ -2,7 +2,7 @@
 EVALUADOR: Maricielo
 EVALUADO: Camila
 ESCENARIO ELEGIDO: Un atacante intercepta el token JWT mientras viaja en el header. ¿Puede usarlo para hacer peticiones? ¿Puede modificar el payload para cambiar el email a otro admin? Explica por qué sí o por qué no.
-RESUMEN DE LA RESPUESTA:
+RESUMEN DE LA RESPUESTA: El atacante sí puede hacer peticiones porque tiene el token válido, pero solo durante las 24 horas de expiración que definimos en nuestro AuthService. No puede modificar el payload para cambiar el email porque nuestro middleware verifyToken usa jwt.verify() con el JWT_SECRET para validar la firma del token. Si el atacante modifica el payload, la firma deja de ser válida, jwt.verify() lanza un error y el middleware responde con 401 Token inválido o expirado.
 QUÉ ENTENDIÓ BIEN: (una frase)
 QUÉ NECESITA REPASAR: (una frase)
 
@@ -12,12 +12,9 @@ QUÉ NECESITA REPASAR: (una frase)
 
 EVALUADOR: Camila
 EVALUADO: Maricielo
-
 ESCENARIO ELEGIDO: Tenemos bcrypt.hash() para registrar y bcrypt.compare() para el login. 
 ¿Por qué no usamos bcrypt.decrypt() para recuperar la contraseña original y compararla directamente? ¿Existe ese método?
-
-RESUMEN DE LA RESPUESTA: Porque no es necesario, el motivo de que hasheamos las contraseñas es para que nadie pueda tener acceso a ellas, y relament eno necesitamos recuperar la original para compararla porque bcrypt.compare hasea la contraseña a comparar y la compara con las d ela base de datos así que no vendría a ser necesario, y no existe el método decrypt porque el mismo hash está hecho para que sea irreversible
-
-QUÉ ENTENDIÓ BIEN: 
-
-QUÉ NECESITA REPASAR: 
+RESUMEN DE LA RESPUESTA: Explicó que no es necesario recuperar la contraseña original porque bcrypt.compare() hashea la contraseña ingresada y la compara directamente con el hash guardado en la base de datos. 
+Además explicó que bcrypt.decrypt() no existe porque el hash es irreversible por diseño, lo que protege las contraseñas aunque alguien acceda a la base de datos.
+QUÉ ENTENDIÓ BIEN: Comprendió por qué el hashing es irreversible y cómo bcrypt.compare() funciona sin necesitar descifrar nada.
+QUÉ NECESITA REPASAR: Profundizar en cómo bcrypt.compare() internamente usa el salt guardado dentro del hash para hacer la comparación correctamente.
