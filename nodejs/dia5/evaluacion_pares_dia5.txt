@@ -6,4 +6,18 @@ RESUMEN DE LA RESPUESTA:
 QUÉ ENTENDIÓ BIEN: (una frase)
 QUÉ NECESITA REPASAR: (una frase)
 
+------------------------------------------------------------------------------
 
+# Tarjeta de evaluación
+
+EVALUADOR: Camila
+EVALUADO: Maricielo
+
+ESCENARIO ELEGIDO: Tenemos bcrypt.hash() para registrar y bcrypt.compare() para el login. 
+¿Por qué no usamos bcrypt.decrypt() para recuperar la contraseña original y compararla directamente? ¿Existe ese método?
+
+RESUMEN DE LA RESPUESTA:
+
+QUÉ ENTENDIÓ BIEN: 
+
+QUÉ NECESITA REPASAR: 
