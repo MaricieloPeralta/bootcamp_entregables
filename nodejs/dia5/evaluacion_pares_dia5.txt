@@ -3,8 +3,8 @@ EVALUADOR: Maricielo
 EVALUADO: Camila
 ESCENARIO ELEGIDO: Un atacante intercepta el token JWT mientras viaja en el header. ¿Puede usarlo para hacer peticiones? ¿Puede modificar el payload para cambiar el email a otro admin? Explica por qué sí o por qué no.
 RESUMEN DE LA RESPUESTA: El atacante sí puede hacer peticiones porque tiene el token válido, pero solo durante las 24 horas de expiración que definimos en nuestro AuthService. No puede modificar el payload para cambiar el email porque nuestro middleware verifyToken usa jwt.verify() con el JWT_SECRET para validar la firma del token. Si el atacante modifica el payload, la firma deja de ser válida, jwt.verify() lanza un error y el middleware responde con 401 Token inválido o expirado.
-QUÉ ENTENDIÓ BIEN: (una frase)
-QUÉ NECESITA REPASAR: (una frase)
+QUÉ ENTENDIÓ BIEN: Entendió que la firma del token protege el payload y que modificarlo invalida el token.
+QUÉ NECESITA REPASAR: El mecanismo que limita el daño cuando el token es robado sin modificar (reducir expiración, blacklist, HTTPS).
 
 ------------------------------------------------------------------------------
 
